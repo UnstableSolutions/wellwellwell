@@ -1,0 +1,177 @@
+local Fun = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/nightmares.fun-UI-Library/main/source.lua"))()
+
+
+local window = Fun.Create("Ns.vip")
+
+local tab = window:Tab("Legit")
+
+local section = tab:Section("Silent Aim")
+
+section:Toggle("Silent Aim", false, function(value)
+    NS.Silent.Enabled = value
+end)
+ 
+
+section:Toggle("Fov", function(bool)
+    Aiming.ShowFOV = bool
+end)
+
+section:KeyBind("KeyBind", Enum.KeyCode.E, function()
+   
+end)
+
+section:Slider("Fov", 200, 0, function(bool)
+    Aiming.FOV = bool
+end)
+   
+section:Dropdown("Aimpart",{"Head","HumanoidRootPart","UpperTorso","LowerTorso"},function(value)
+    Aiming.AimPart = value
+end)
+
+section:TextBox("0.157",function(bool)
+    DaHoodSettings.Prediction = bool
+end)
+
+local tab = window:Tab("Fun Nigga Shit")
+
+local section = tab:Section("Fuck You Lil Nigga")
+
+section:Button("FLY (X)",function(bool)
+    loadstring(game:HttpGet("https://pastebin.com/raw/sUA9m6M6"))()
+end)
+
+local section = tab:Section("Macro")
+
+local section = tab:Section("Anims bc techz wanted em")
+
+section:Button("Zombie Anims",function(bool)
+    while true do
+        wait(1)
+        for i, player in ipairs(game.Players:GetChildren()) do
+        local Animate = game.Players.LocalPlayer.Character.Animate
+    Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=782841498"
+    Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=782841498"
+    Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616168032"
+    Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
+    Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083218792"
+    Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083439238"
+    Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=707829716"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = false
+        end
+    end
+end)
+
+
+
+local tab = window:Tab("Teleportation")
+
+local section = tab:Section("Niggas Teleport too bro")
+
+section:Button("DB",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(26.123798370361328, 25.6300048828125, -832.0436401367188)
+ end)
+
+section:Button("Rev",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-635.845947265625, 21.75, -124.44608306884766)
+end)
+
+section:Button("Shotgun",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-581.5287475585938, 8.314778327941895, -725.739501953125)
+end)
+
+section:Button("Tac",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(470.41943359375, 48.070491790771484, -623.1619262695312)
+end)
+
+section:Button("Smg",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-579.2731323242188, 8.314779281616211, -720.5165405273438)
+end)
+
+section:Button("RPG",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(114.07876586914062, -26.75003433227539, -271.35577392578125)
+end)
+
+section:Button("Armor",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(529.624267578125, 50.32725524902344, -636.4960327148438)
+end)
+
+section:Button("PopCorn",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-993.7319946289062, 24.600008010864258, -155.8426055908203)
+end)
+
+section:Button("Casino",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-916.9353637695312, 21.25499153137207, -183.15428161621094)
+end)
+
+section:Button("Bank",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-448.39703369140625, 23.05942726135254, -284.921630859375)
+end)
+
+section:Button("Food",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-280.6548767089844, 22.649866104125977, -804.697998046875)
+end)
+
+section:Button("Flame Thrower",function(value)
+    getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-154.92628479003906, 53.810604095458984, -99.6678466796875)
+end)
+
+local Aiming = loadstring(game:HttpGet("https://pastebin.com/raw/vsVecTqs"))()
+Aiming.TeamCheck(false)
+
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local CurrentCamera = Workspace.CurrentCamera
+
+local DaHoodSettings = {
+    SilentAim = false,
+    AimLock = false,
+    Prediction = 0.157,  
+}
+
+getgenv().DaHoodSettings = DaHoodSettings
+
+function Aiming.Check()
+    if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil) then
+        return false
+    end
+
+    local Character = Aiming.Character(Aiming.Selected)
+    local KOd = Character:WaitForChild("BodyEffects")["K.O"].Value
+    local Grabbed = Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
+
+    if (KOd or Grabbed) then
+        return false
+    end
+
+    return true
+end
+
+local __index
+__index = hookmetamethod(game, "__index", function(t, k)
+    if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and Aiming.Check()) then
+        local SelectedPart = Aiming.SelectedPart
+
+        if (DaHoodSettings.SilentAim and (k == "Hit" or k == "Target")) then
+            local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+
+            return (k == "Hit" and Hit or SelectedPart)
+        end
+    end
+
+    return __index(t, k)
+end)
+
+RunService:BindToRenderStep("AimLock", 0, function()
+    if (DaHoodSettings.AimLock and Aiming.Check() and UserInputService:IsKeyDown(DaHoodSettings.AimLockKeybind)) then
+        local SelectedPart = Aiming.SelectedPart
+
+        local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+
+        CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
+    end
+end)
